@@ -10,16 +10,15 @@ import java.awt.BorderLayout;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+
 
 public class ClientGUI {
 
 	private JFrame frmChatRoom;
 	private JTextField message;
 	private static JTextArea showMessage;
-	private String name;
+	private static String name;
 	private Client client;
 
 	public static void main(String[] args) {
@@ -79,7 +78,7 @@ public class ClientGUI {
 	
 	public static void printText(String m) {
 		
-		showMessage.setText(showMessage.getText()+m+"\n");
+		showMessage.setText(name+" : "+showMessage.getText()+m+"\n");
 	}
 
 }

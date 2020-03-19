@@ -10,12 +10,7 @@ public class InformationClient {
 	private int id;
 	private int port;
 	
-	/**
-	 * @param address
-	 * @param name
-	 * @param id
-	 * @param port
-	 */
+
 	public InformationClient(InetAddress address, String name, int id, int port) {
 		this.address=address;
 		this.name = name;

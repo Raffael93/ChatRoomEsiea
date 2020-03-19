@@ -25,7 +25,7 @@ public class Client {
 			
 			running = true;
 			listen();
-			send("\\con:"+name);
+			send("--con:"+name);
 			
 			
 		} catch (Exception e) {
@@ -40,6 +40,7 @@ public class Client {
 	public void send(String m) {
 		
 		try {
+			
 			m += "\\e";
 			byte[] buffer = m.getBytes();
 			DatagramPacket packet = new DatagramPacket(buffer, buffer.length,address,port);
@@ -92,7 +93,7 @@ public class Client {
 
 	private static boolean isServerCommand(String m, DatagramPacket packet) {
 		
-		if (m.startsWith("\\con:")) {
+		if (m.startsWith("--con:")) {
 			
 			return true;
 		}

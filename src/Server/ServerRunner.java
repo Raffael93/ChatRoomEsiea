@@ -95,11 +95,11 @@ public class ServerRunner {
 		
 	}
 	
-	//CON is used to connect and ":" it's a delimiter
+	// CON is used to connect and ":" it's a delimiter
 	
 	private static boolean isServerCommand(String m, DatagramPacket packet) {
 		
-		if (m.startsWith("\\con:")) {
+		if (m.startsWith("--con:")) {
 			
 			String name = m.substring(m.indexOf(":")+1);
 			listClient.add(new InformationClient(packet.getAddress(), name,idClient++, packet.getPort()));
