@@ -1,4 +1,4 @@
-package Model;
+package Server;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -46,7 +46,7 @@ public class ServerRunner {
 			byte[] buffer = m.getBytes();
 			DatagramPacket packet = new DatagramPacket(buffer, buffer.length,address,port);
 			socket.send(packet);
-			
+			System.out.println("TEST "+address.getHostAddress());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -65,7 +65,7 @@ public class ServerRunner {
 				
 				try {
 					while(running) {
-						byte[] buffer = new byte[2048];
+						byte[] buffer = new byte[1024];
 						DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
 						socket.receive(packet);
 						
@@ -95,14 +95,13 @@ public class ServerRunner {
 		
 	}
 	
-	//CON is used to connect and ":" it's a limiter
+	//CON is used to connect and ":" it's a delimiter
 	
 	private static boolean isServerCommand(String m, DatagramPacket packet) {
 		
-		if (m.startsWith("con:")) {
+		if (m.startsWith("\\con:")) {
 			
 			String name = m.substring(m.indexOf(":")+1);
-			
 			listClient.add(new InformationClient(packet.getAddress(), name,idClient++, packet.getPort()));
 			broadcast("User "+name+ " connected");
 			
