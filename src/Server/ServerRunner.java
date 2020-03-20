@@ -5,11 +5,14 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.ArrayList;
 
+import Client.Client;
+
 public class ServerRunner {
 	
 	private static DatagramSocket socket;
-	private static boolean running;
+	private static boolean isRunning;
 	private static int idClient;
+	private Client client;
 	
 	public static ArrayList<InformationClient> listClient = new ArrayList<InformationClient>();
 
@@ -17,7 +20,7 @@ public class ServerRunner {
 		
 		try {
 			socket = new DatagramSocket(port);
-			running =true;
+			isRunning =true;
 			listen();
 			
 			System.out.println("Server connected on port "+port); 
@@ -64,7 +67,7 @@ public class ServerRunner {
 			public void run() {
 				
 				try {
-					while(running) {
+					while(isRunning) {
 						byte[] buffer = new byte[1024];
 						DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
 						socket.receive(packet);
@@ -114,7 +117,7 @@ public class ServerRunner {
 	
 	//Stop method
 	public static void stop() {
-		running = false;
+		isRunning = false;
 		
 	}
 	

@@ -62,8 +62,11 @@ public class ClientGUI {
 		
 		JButton btnSend = new JButton("Send");
 		btnSend.addActionListener( e -> {
-			client.send(message.getText());
-			message.setText("");	
+			if(!message.getText().equals("")) {
+				client.send(message.getText());
+				message.setText("");
+			}
+	
 				
 		});
 		
@@ -78,7 +81,7 @@ public class ClientGUI {
 	
 	public static void printText(String m) {
 		
-		showMessage.setText(name+" : "+showMessage.getText()+m+"\n");
+		showMessage.setText(showMessage.getText()+m+"\n");
 	}
 
 }

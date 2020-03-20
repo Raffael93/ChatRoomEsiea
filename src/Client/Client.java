@@ -11,10 +11,11 @@ public class Client {
 	private DatagramSocket socket;
 	private InetAddress address;
 	private int port;
-	private String name;
+	private String namee;
 	private boolean running;
 	
-	public Client(String name,String address, int port) {
+	public Client(String namee,String address, int port) {
+		this.namee = namee;
 		try {
 			
 			this.address=InetAddress.getByName(address);
@@ -25,7 +26,7 @@ public class Client {
 			
 			running = true;
 			listen();
-			send("--con:"+name);
+			send("--con:"+namee);
 			
 			
 		} catch (Exception e) {
@@ -40,6 +41,10 @@ public class Client {
 	public void send(String m) {
 		
 		try {
+			if(!m.startsWith("--")) {
+				m = namee +" : " + m;
+			}
+			
 			
 			m += "\\e";
 			byte[] buffer = m.getBytes();
@@ -89,6 +94,7 @@ public class Client {
 		
 		
 	}
+	
 	
 
 	private static boolean isServerCommand(String m, DatagramPacket packet) {
