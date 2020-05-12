@@ -1,8 +1,17 @@
 package Server;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 import Client.Client;
@@ -49,7 +58,7 @@ public class ServerRunner {
 			byte[] buffer = m.getBytes();
 			DatagramPacket packet = new DatagramPacket(buffer, buffer.length,address,port);
 			socket.send(packet);
-			System.out.println("TEST "+address.getHostAddress());
+			//System.out.println("TEST "+address.getHostAddress());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,6 +89,9 @@ public class ServerRunner {
 						if(!isServerCommand(m,packet)) {
 							broadcast(m);
 						}
+						//File writer
+						getMessageConstant(m);
+						//System.out.println(m);
 						
 					}
 					
@@ -106,7 +118,7 @@ public class ServerRunner {
 			
 			String name = m.substring(m.indexOf(":")+1);
 			listClient.add(new InformationClient(packet.getAddress(), name,idClient++, packet.getPort()));
-			broadcast("User "+name+ " connected");
+			broadcast("User "+name+ " connected \nWelcome " + name +" in my soul society !");
 			
 			return true;
 		}
@@ -120,5 +132,36 @@ public class ServerRunner {
 		isRunning = false;
 		
 	}
+	
+	
+	
+	public static void getMessageConstant(String m) {
+
+		Path path = Paths.get("files", "message","message.txt");
+		
+		String text = m + "\n";
+		
+		try {
+			Files.write(path, text.getBytes(), 
+					StandardOpenOption.CREATE,
+					StandardOpenOption.WRITE,
+					StandardOpenOption.APPEND);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
