@@ -91,7 +91,7 @@ public class ServerRunner {
 						}
 						//File writer
 						getMessageConstant(m);
-						//System.out.println(m);
+						
 						
 					}
 					
@@ -118,7 +118,7 @@ public class ServerRunner {
 			
 			String name = m.substring(m.indexOf(":")+1);
 			listClient.add(new InformationClient(packet.getAddress(), name,idClient++, packet.getPort()));
-			broadcast("User "+name+ " connected \nWelcome " + name +" in my soul society !");
+			broadcast("User "+name+ " connected \nWelcome " + name +" to my soul society !\n");
 			
 			return true;
 		}
