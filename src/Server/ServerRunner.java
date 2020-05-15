@@ -16,15 +16,32 @@ import java.util.ArrayList;
 
 import Client.Client;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ServerRunner.
+ */
 public class ServerRunner {
 	
+	/** The socket. */
 	private static DatagramSocket socket;
+	
+	/** The is running. */
 	private static boolean isRunning;
+	
+	/** The id client. */
 	private static int idClient;
+	
+	/** The client. */
 	private Client client;
 	
+	/** The list client. */
 	public static ArrayList<InformationClient> listClient = new ArrayList<InformationClient>();
 
+	/**
+	 * Start.
+	 *
+	 * @param port the port
+	 */
 	public static void start(int port) {
 		
 		try {
@@ -40,6 +57,11 @@ public class ServerRunner {
 	}
 	
 	
+	/**
+	 * Broadcast.
+	 *
+	 * @param m the m
+	 */
 	//Send a message to everyone
 	public static void broadcast(String m) {
 		
@@ -50,6 +72,13 @@ public class ServerRunner {
 		
 	}
 	
+	/**
+	 * Send.
+	 *
+	 * @param m the m
+	 * @param address the address
+	 * @param port the port
+	 */
 	//Sending message for a person
 	public static void send(String m,InetAddress address,int port) {
 		try {
@@ -69,6 +98,9 @@ public class ServerRunner {
 	}
 	
 	
+	/**
+	 * Listen.
+	 */
 	//Thread
 	public static void listen() {
 		
@@ -112,6 +144,13 @@ public class ServerRunner {
 	
 	// CON is used to connect and ":" it's a delimiter
 	
+	/**
+	 * Checks if is server command.
+	 *
+	 * @param m the m
+	 * @param packet the packet
+	 * @return true, if is server command
+	 */
 	private static boolean isServerCommand(String m, DatagramPacket packet) {
 		
 		if (m.startsWith("--con:")) {
@@ -127,6 +166,9 @@ public class ServerRunner {
 	}
 	
 	
+	/**
+	 * Stop.
+	 */
 	//Stop method
 	public static void stop() {
 		isRunning = false;
@@ -135,6 +177,12 @@ public class ServerRunner {
 	
 	
 	
+	/**
+	 * Gets the message constant.
+	 *
+	 * @param m the m
+	 * 
+	 */
 	public static void getMessageConstant(String m) {
 
 		Path path = Paths.get("files", "message","message.txt");

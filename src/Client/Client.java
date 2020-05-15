@@ -5,15 +5,35 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Client.
+ */
 public class Client {
 	
 	
+	/** The socket. */
 	private DatagramSocket socket;
+	
+	/** The address. */
 	private InetAddress address;
+	
+	/** The port. */
 	private int port;
+	
+	/** The namee. */
 	private String namee;
+	
+	/** The running. */
 	private boolean running;
 	
+	/**
+	 * Instantiates a new client.
+	 *
+	 * @param namee the namee
+	 * @param address the address
+	 * @param port the port
+	 */
 	public Client(String namee,String address, int port) {
 		this.namee = namee;
 		try {
@@ -38,6 +58,11 @@ public class Client {
 	}
 	
 	
+	/**
+	 * Send.
+	 *
+	 * @param m the m
+	 */
 	public void send(String m) {
 		
 		try {
@@ -59,6 +84,9 @@ public class Client {
 		
 	}
 	
+	/**
+	 * Listen.
+	 */
 	public void listen() {
 		
 		Thread listenThread = new Thread("Listener") {
@@ -97,6 +125,13 @@ public class Client {
 	
 	
 
+	/**
+	 * Checks if is server command.
+	 *
+	 * @param m the m
+	 * @param packet the packet
+	 * @return true, if is server command
+	 */
 	private static boolean isServerCommand(String m, DatagramPacket packet) {
 		
 		if (m.startsWith("--con:")) {

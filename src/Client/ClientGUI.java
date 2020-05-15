@@ -120,6 +120,11 @@ public class ClientGUI {
 		
 	}
 	
+	/**
+	 * Prints the text.
+	 *
+	 * @param m the m
+	 */
 	public static void printText(String m) {
 		
 		showMessage.setText(showMessage.getText()+m+"\n");
