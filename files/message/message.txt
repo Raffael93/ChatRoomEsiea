@@ -9,3 +9,13 @@ raf : Aizen
 --con:Amir
 raf : Coucou
 Amir : Wsh
+--con:eaz
+--con:eza
+--con:eza
+--con:aez
+--con:null
+--con:raf
+--con:ref
+--con:reaz
+--con:raf
+raf : cou
