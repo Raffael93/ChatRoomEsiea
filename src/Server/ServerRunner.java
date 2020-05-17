@@ -151,7 +151,7 @@ public class ServerRunner {
 	 * @param packet the packet
 	 * @return true, if is server command
 	 */
-	private static boolean isServerCommand(String m, DatagramPacket packet) {
+	public static boolean isServerCommand(String m, DatagramPacket packet) {
 		
 		if (m.startsWith("--con:")) {
 			
