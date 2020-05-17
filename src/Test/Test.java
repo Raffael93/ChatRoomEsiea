@@ -25,7 +25,7 @@ public class Test {
 	
 	@Before
 	public void setUp() {
-		client = new Client("Raffael","127.0.0.1",4242);
+		client = new Client("Raffael","127.0.0.1",4343);
 		
 		
 		

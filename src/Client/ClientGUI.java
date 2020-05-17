@@ -111,6 +111,7 @@ public class ClientGUI {
 		
 		oldMessage = new JButton("Old Message");
 		oldMessage.addActionListener(e -> {
+			clear();
 			readAndShowOldMessages();
 		});
 		panel1.add(oldMessage);
