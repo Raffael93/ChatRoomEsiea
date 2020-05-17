@@ -67,7 +67,7 @@ public class ClientGUI {
 	private void initialize() {
 		frmChatRoom = new JFrame();
 		frmChatRoom.setTitle("Chat room ");
-		frmChatRoom.setBounds(100, 100, 836, 573);
+		frmChatRoom.setBounds(100, 100, 900, 600);
 		frmChatRoom.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		showMessage = new JTextArea();
 		showOldMessage = new JTextArea();
