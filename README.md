@@ -6,3 +6,5 @@
  2- Lancer server.jar
  
  3- Lancer une ou plusieurs fois GUI.jar pour avoir un ou plusieur clients
+ 
+ 4- Enjoy, parlez entre vous ;)
