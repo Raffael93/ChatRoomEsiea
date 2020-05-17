@@ -111,7 +111,8 @@ public class ClientGUI {
 		
 		oldMessage = new JButton("Old Message");
 		oldMessage.addActionListener(e -> {
-			clear();
+			
+			showOldMessage.setText("");
 			readAndShowOldMessages();
 		});
 		panel1.add(oldMessage);
@@ -137,6 +138,8 @@ public class ClientGUI {
 	}
 	
 	
+	
+	
 	public static void readAndShowOldMessages() {
 		
 		File f = new File("files/message/message.txt");
@@ -150,6 +153,7 @@ public class ClientGUI {
 			
 			while((line = buff.readLine()) != null) {
 				printTextOld(line);
+				
 			}
 		
 		} catch (FileNotFoundException e) {
