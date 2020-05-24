@@ -8,6 +8,7 @@ import Client.ClientGUI;
 
 public class ClientController {
 
+	
 	//Controller
 	public static void controller() {
 		EventQueue.invokeLater(new Runnable() {

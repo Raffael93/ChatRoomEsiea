@@ -2,6 +2,7 @@ package Server;
 
 import java.net.InetAddress;
 
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class InformationClient.

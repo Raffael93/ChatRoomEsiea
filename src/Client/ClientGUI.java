@@ -32,6 +32,7 @@ import javax.swing.DropMode;
 
 public class ClientGUI {
 	
+	
 	private static BufferedReader buff = null;
 
 	public JFrame frmChatRoom;
