@@ -13,6 +13,9 @@ import java.nio.file.Paths;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+
+import Controller.ClientController;
+
 import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import javax.swing.JTextArea;
@@ -31,7 +34,7 @@ public class ClientGUI {
 	
 	private static BufferedReader buff = null;
 
-	private JFrame frmChatRoom;
+	public JFrame frmChatRoom;
 	private JTextField message;
 	private static JTextArea showMessage;
 	private static String name;
@@ -41,18 +44,7 @@ public class ClientGUI {
 	private JButton oldMessage;
 
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					ClientGUI window = new ClientGUI();
-					window.frmChatRoom.setVisible(true);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		ClientController.controller();
 	}
 
 
@@ -64,6 +56,8 @@ public class ClientGUI {
 	}
 
 
+	
+	//View
 	private void initialize() {
 		frmChatRoom = new JFrame();
 		frmChatRoom.setTitle("Chat room ");

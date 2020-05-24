@@ -8,6 +8,7 @@ import java.net.SocketException;
 import java.util.ArrayList;
 
 import org.junit.Before;
+import org.junit.runner.JUnitCore;
 
 import Client.Client;
 import Server.InformationClient;
@@ -22,6 +23,8 @@ public class Test {
 	private String message;
 	private boolean isRunning;
 	private static DatagramSocket socket;
+	
+	
 	
 	@Before
 	public void setUp() {
